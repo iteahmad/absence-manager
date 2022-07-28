@@ -27,10 +27,20 @@ const CardGrid: React.FC<CardGridProps> = ({ data, isLoading, error }) => {
       });
       content = <div className="grid grid-cols-5  gap-3">{cards}</div>;
     } else {
-      let cards = data?.map((element: Absence) => {
-        return <AbsenceCard {...element} />;
-      });
-      content = <div className="grid grid-cols-5  gap-3">{cards}</div>;
+      if (data?.length === 0) {
+        content = (
+          <div className="h-full bg-white-500  bg-obacit-50 z-50 flex justify-center items-center">
+            <Text tag="p" className="text-xl">
+              There is no results
+            </Text>
+          </div>
+        );
+      } else {
+        let cards = data?.map((element: Absence) => {
+          return <AbsenceCard key={element.id} {...element} />;
+        });
+        content = <div className="grid grid-cols-5  gap-3">{cards}</div>;
+      }
     }
   }
 

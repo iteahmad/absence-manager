@@ -8,47 +8,22 @@ import {
 } from "../components/atoms/selectList/selectList";
 import CardGrid from "../components/molecules/cardGrid/CardGrid";
 import Pagination from "../components/molecules/pagination";
+import AbsencePanel from "../components/organisms/AbsencePanel";
 import {
   absencePagination,
   absenceSelector,
 } from "../store/absences/absence.slice";
 
 const HomePage = () => {
-  const {
-    data,
-    totalPages,
-    page,
-    filter,
-    setFilter,
-    setPage,
-    pageSize,
-    setPageSize,
-    totalEntries,
-    isLoading,
-  } = usePagination(absenceSelector, absencePagination);
-
-  const changeStatusFilter = (option: SelectListOption) => {
-    setFilter({ key: "status", value: option.value.toString() });
-  };
-
-  const changeDateFilter = (event: any) => {
-    console.log(event.target.value);
-    setFilter({ key: "date", value: event.target.value });
-  };
-
-  const statusList = [
-    { value: "all", label: "All" },
-    { value: "requested", label: "Requested" },
-    { value: "confirmed", label: "Confirmed" },
-    { value: "rejected", label: "Rejected" },
-  ];
-
   return (
     <div className="h-screen  flex flex-col p-5 items-stretch  justify-center ">
       <div className="w-full h-min  rounded flex items-center justify-center">
         <Heading> Absence Manager</Heading>
       </div>
-      <div className="h-full flex flex-col p-5 items-start  justify-center ">
+
+      <AbsencePanel />
+
+      {/* <div className="h-full flex flex-col p-5 items-start  justify-center ">
         <div className="h-min w-full rounded flex flex-col items-start  justify-center  border border-gray-200 shadow-md">
           <div
             className="w-full px-6 py-2    rounded 
@@ -85,7 +60,7 @@ const HomePage = () => {
             />
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
