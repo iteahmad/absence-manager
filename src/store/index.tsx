@@ -5,8 +5,11 @@ import {
 } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import rootSaga from "./rootSaga";
+import absenceReducer from "./absences/absence.slice";
 
-const rootReducer = combineReducers({});
+const rootReducer = combineReducers({
+  absence: absenceReducer,
+});
 
 export const setupStore = (preloadedState?: PreloadedState<RootState>) => {
   const sagaMiddleware = createSagaMiddleware();
