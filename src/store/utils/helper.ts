@@ -30,7 +30,6 @@ export const generateBuilderForRequestAction = <T>(
 ) => {
   builder
     .addCase(action.requested, (state: any) => {
-      console.log("requested");
       state.isLoading = true;
     })
     .addCase(
@@ -83,7 +82,6 @@ export const generateBuilderForRequestActionWithPagination = <T>(
       action.setFilter,
       (state: any, { payload }: { payload: Filter | undefined }) => {
         if (payload) state.filter[payload.key] = payload.value;
-        console.log(state);
       }
     )
     .addCase(action.setPageSize, (state: any, { payload }) => {

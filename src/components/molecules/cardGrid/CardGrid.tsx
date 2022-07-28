@@ -22,14 +22,17 @@ const CardGrid: React.FC<CardGridProps> = ({ data, isLoading, error }) => {
     );
   } else {
     if (isLoading) {
-      let cards = data?.map((element: Absence) => {
-        return <PlaceholderCard />;
-      });
-      content = <div className="grid grid-cols-5  gap-3">{cards}</div>;
+      content = (
+        <div className="w-full min-h-screen bg-white-500 z-50 flex justify-center items-center">
+          <Text tag="p" className="text-xl">
+            loading ...
+          </Text>
+        </div>
+      );
     } else {
       if (data?.length === 0) {
         content = (
-          <div className="h-full bg-white-500  bg-obacit-50 z-50 flex justify-center items-center">
+          <div className="h-full bg-white-500 z-50 flex justify-center items-center">
             <Text tag="p" className="text-xl">
               There is no results
             </Text>
@@ -39,7 +42,9 @@ const CardGrid: React.FC<CardGridProps> = ({ data, isLoading, error }) => {
         let cards = data?.map((element: Absence) => {
           return <AbsenceCard key={element.id} {...element} />;
         });
-        content = <div className="grid grid-cols-5  gap-3">{cards}</div>;
+        content = (
+          <div className="min-h-fit  grid grid-cols-2  gap-3">{cards}</div>
+        );
       }
     }
   }

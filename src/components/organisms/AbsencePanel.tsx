@@ -28,7 +28,6 @@ const AbsencePanel = () => {
   };
 
   const changeDateFilter = (event: any) => {
-    console.log(event.target.value);
     setFilter({ key: "date", value: event.target.value });
   };
 
@@ -40,7 +39,7 @@ const AbsencePanel = () => {
   ];
 
   return (
-    <div className="h-full flex flex-col p-5 items-start  justify-center ">
+    <div className="h-full flex flex-col p-5 items-center  justify-center ">
       <div className="h-min w-full rounded flex flex-col items-start  justify-center  border border-gray-200 shadow-md">
         <div
           className="w-full px-6 py-2    rounded 
@@ -56,13 +55,10 @@ const AbsencePanel = () => {
           <div className="basis-1/5 mx-10">
             <DatePicker onChange={changeDateFilter} />
           </div>
-          <div className="basis-1/5 mx-10">
-            <Button className="rounded-xl">fitler</Button>
-          </div>
         </div>
       </div>
-      <div className="h-5/6 w-full">
-        <div className="h-[90%] w-full">
+      <div className="w-full flex flex-col">
+        <div className="h-[90%] mt-5 w-full">
           <CardGrid data={data} isLoading={isLoading} />
         </div>
         <div className="h-[10%] w-full flex justify-center">

@@ -4,7 +4,7 @@ const filterData = (data: any[], dateFilter = "", status: Status): any[] => {
   let filteredData = data;
   if (dateFilter) {
     const date = new Date(Date.parse(dateFilter));
-    console.log(date);
+
     filteredData = data.filter(
       (item) => item.createdAt.getTime() === date.getTime()
     );

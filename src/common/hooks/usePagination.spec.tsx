@@ -14,7 +14,7 @@ describe("testing usePagination", () => {
     const { result }: RenderHookResult<any, any> = renderHookWithProviders(() =>
       usePagination(absenceSelector, absencePagination)
     );
-    console.log(result);
+
     expect(result.current.page).toEqual(0);
 
     act(() => {
