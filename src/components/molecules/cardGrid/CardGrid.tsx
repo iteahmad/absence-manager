@@ -23,7 +23,7 @@ const CardGrid: React.FC<CardGridProps> = ({ data, isLoading, error }) => {
   } else {
     if (isLoading) {
       content = (
-        <div className="w-full min-h-screen bg-white-500 z-50 flex justify-center items-center">
+        <div className="min-h-screen w-[900px] bg-white-500 z-50 flex justify-center items-center">
           <Text tag="p" className="text-xl">
             loading ...
           </Text>
@@ -32,7 +32,7 @@ const CardGrid: React.FC<CardGridProps> = ({ data, isLoading, error }) => {
     } else {
       if (data?.length === 0) {
         content = (
-          <div className="h-full bg-white-500 z-50 flex justify-center items-center">
+          <div className="h-full bg-white-500 z-50 w-[900px] flex justify-center items-center">
             <Text tag="p" className="text-xl">
               There is no results
             </Text>
