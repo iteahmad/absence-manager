@@ -28,7 +28,7 @@ const Pagination: React.FC<PaginationProps> = (props) => {
       />
 
       <Text tag="span" className="text-xl py-2">
-        showing {props.pageSize} of total {props.totalEntries}
+        Total number of entries {props.totalEntries}
       </Text>
     </div>
   );
