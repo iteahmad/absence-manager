@@ -30,18 +30,7 @@ describe("Test fetchAbsences saga", () => {
 
     assert.deepEqual(gen.next(stateMock).value, call(absences, 0, 5, {}));
 
-    const mockResponse: Response<any> = {
-      data: [],
-      page: 0,
-      totalEntries: 10,
-      totalPageCount: 2,
-      pageSize: 5,
-    };
-
-    assert.deepEqual(
-      gen.next(mockResponse).value,
-      put(absencePagination.fullfilled(mockResponse))
-    );
+    assert.deepEqual(gen.next().value, put(absencePagination.fullfilled()));
   });
 
   it("when an error is thrown", () => {

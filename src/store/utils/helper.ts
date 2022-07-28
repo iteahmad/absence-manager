@@ -14,7 +14,9 @@ export const generateRequestAction = <T>(
 ): RequestAction<T | undefined> => {
   const action = createAction<T | undefined>(actionKey);
   const requested = createAction<T | undefined>(actionKey + ".requested");
-  const fullfilled = createAction<Response<any>>(actionKey + ".fullfilled");
+  const fullfilled = createAction<Response<any> | undefined>(
+    actionKey + ".fullfilled"
+  );
   const rejected = createAction<T | undefined>(actionKey + ".rejected");
   return {
     action,
@@ -34,7 +36,7 @@ export const generateBuilderForRequestAction = <T>(
     })
     .addCase(
       action.fullfilled,
-      (state: any, { payload }: { payload: Response<any> }) => {
+      (state: any, { payload }: { payload: Response<any> | any }) => {
         state.data = payload.data;
         state.pageSize = payload.pageSize;
         state.totalPageCount = payload.totalPageCount;

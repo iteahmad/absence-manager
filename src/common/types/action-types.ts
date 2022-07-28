@@ -5,7 +5,7 @@ import { Filter } from "./states-types";
 export interface RequestAction<T> {
   action: PayloadActionCreator<T | undefined>;
   requested: PayloadActionCreator<T | undefined>;
-  fullfilled: PayloadActionCreator<Response<T>>;
+  fullfilled: PayloadActionCreator<Response<T> | undefined>;
   rejected: PayloadActionCreator<T | undefined>;
 }
 
