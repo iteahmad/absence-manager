@@ -25,7 +25,7 @@ const readJsonFile = (path: string): Promise<any[]> =>
 export const absences = async (
   pageNumber = 0,
   pageSize = 10,
-  filter: any
+  filter: any = {}
 ): Promise<Response<Absence[]>> => {
   const absences = await readJsonFile(ABSENCES_PATH);
   const members = await readJsonFile(MEMBERS_PATH);
