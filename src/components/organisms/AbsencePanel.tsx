@@ -6,6 +6,7 @@ import {
 import Button from "../atoms/button";
 import DatePicker from "../atoms/datepicker";
 import { SelectList, SelectListOption } from "../atoms/selectList/selectList";
+import Text from "../atoms/text";
 import CardGrid from "../molecules/cardGrid";
 import Pagination from "../molecules/pagination";
 
@@ -45,14 +46,17 @@ const AbsencePanel = () => {
           className="w-full px-6 py-2    rounded 
                     flex flex-row items-center justify-center"
         >
-          <div className="basis-1/5 mx-10">
+          <div className="basis-2/5 mx-10 flex">
+          <Text className="basis-1/3 p-1">status</Text>
             <SelectList
+            className="w-full grow"
               name="type"
               options={statusList}
               onChange={changeStatusFilter}
             ></SelectList>
           </div>
-          <div className="basis-1/5 mx-10">
+          <div className="basis-2/5 mx-10 flex ">
+            <Text className="basis-1/2 p-1">start date</Text>
             <DatePicker onChange={changeDateFilter} />
           </div>
         </div>

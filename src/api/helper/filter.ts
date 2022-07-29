@@ -6,18 +6,18 @@ const filterData = (data: any[], dateFilter = "", status: Status): any[] => {
     const date = new Date(Date.parse(dateFilter));
 
     filteredData = data.filter(
-      (item) => item.createdAt.getTime() === date.getTime()
+      (item) => item.startDate.getTime() === date.getTime()
     );
   }
   if (status === "rejected") {
-    filteredData = data.filter((item) => item.rejectedAt);
+    filteredData = filteredData.filter((item) => item.rejectedAt);
   }
 
   if (status === "confirmed") {
-    filteredData = data.filter((item) => item.confirmedAt);
+    filteredData = filteredData.filter((item) => item.confirmedAt);
   }
   if (status === "requested") {
-    filteredData = data.filter(
+    filteredData = filteredData.filter(
       (item) => !(item.confirmedAt || item.rejectedAt)
     );
   }

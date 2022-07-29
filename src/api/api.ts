@@ -36,7 +36,7 @@ export const absences = async (
     );
     return { ...absence, member: { ...relatedMember } };
   });
-
+  console.log(filter);
   let dateFilter = "";
   if (filter && filter["date"]) {
     dateFilter = filter["date"];
